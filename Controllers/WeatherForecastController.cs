@@ -1,3 +1,4 @@
+using LibraryApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApi.Controllers

@@ -1,4 +1,4 @@
-namespace LibraryApi
+namespace LibraryApi.Models
 {
     public class WeatherForecast
     {
