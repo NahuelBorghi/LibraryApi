@@ -80,8 +80,8 @@ namespace LibraryApi.Controllers
         // Implement methods for IsValidUser and IsAdmin (replace with your authentication logic)
         private bool IsValidUser(string username, string password)
         {
-            var user = _context.Users.FirstOrDefault(u => u.UserName == username && u.Password == password);
-            return user != null;
+            var user = _context.Users.FirstOrDefault(u => u.UserName == username);
+            return user != null && BCrypt.Net.BCrypt.Verify(password, user.Password);
         }
 
         private bool IsAdmin(string username)

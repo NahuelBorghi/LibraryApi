@@ -12,13 +12,10 @@ namespace LibraryApi.Services
         //despues ver como mandar secret key por parametro
         public JwtService()
         {
-            _secretKey = "c0Ntr4T4M3pOrfAv0RqU1eRotr4bAjaRj4JaJA=";
+            _secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");
         }
         public string GenerateToken(string username, bool isAdmin)
         {
-
-            
-            
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
             var credentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256Signature);
 

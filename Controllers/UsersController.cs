@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LibraryApi.Models;
 using Microsoft.AspNetCore.Authorization;
+using BCrypt.Net;
 
 namespace LibraryApi.Controllers
 {
@@ -47,6 +48,7 @@ namespace LibraryApi.Controllers
             {
                 // Genera un nuevo GUID para el Id
                 user.Id = Guid.NewGuid();
+                user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
                 _context.Add(user);
                 await _context.SaveChangesAsync();
 
@@ -70,6 +72,7 @@ namespace LibraryApi.Controllers
             {
                 try
                 {
+                    user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
                     _context.Update(user);
                     await _context.SaveChangesAsync();
                 }

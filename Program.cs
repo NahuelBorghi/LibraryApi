@@ -1,18 +1,3 @@
-/*
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using System.Reflection;
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.Run();
-
- */
-
-
 using LibraryApi.Middlewares;
 using LibraryApi.Models;
 using LibraryApi.Services;
